@@ -1,0 +1,511 @@
+/* style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+/* Styling untuk header */
+header {
+    background-color: #23602F; /* atau transparan jika perlu */
+    padding: 5px 0px;
+    box-shadow: none;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    margin-bottom: 0%;
+   
+}
+
+/* Flexbox untuk container navbar */
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Logo di kiri, navbar di kanan */
+    max-width: 1200px; /* Sesuaikan dengan lebar maksimal */
+    margin: 0 auto;
+    margin-bottom: 0cm;
+    
+}
+
+/* Styling untuk logo */
+.logo img {
+    height: 35px; /* Sesuaikan ukuran logo */
+}
+
+/* Styling untuk navbar */
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px; /* Jarak antar link navbar */
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12;
+    color: #ffffff;
+    font-weight:500;
+    transition: color 0.3s;
+}
+
+
+/* Style dasar untuk link navbar */
+header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 5px; /* Memberi ruang untuk garis bawah */
+}
+
+/* Efek garis saat hover */
+header nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffffff; /* Warna garis bawah */
+    transition: width 0.3s ease; /* Animasi lebar garis */
+}
+
+/* Menampilkan garis saat hover */
+header nav ul li a:hover::after {
+    width: 100%; /* Garis penuh di bawah teks saat hover */
+}
+
+/* Efek garis untuk halaman aktif */
+header nav ul li a.active::after {
+    width: 100%; /* Garis penuh untuk halaman aktif */
+}
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    flex-direction: column;
+    margin-top: -120px;
+    margin-bottom: -130px;
+}
+
+.centered-container-pendaftaran {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 300px;
+    margin-bottom: -500px;
+}
+
+.saksi1{
+    margin-top: 0;
+    margin-bottom: -800;
+}
+
+.formsaksi2{
+    font-family: 'Poppins', sans-serif;
+    margin-top: 0;
+    margin-bottom: 0; 
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-top: 100;
+}
+
+.centered-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: -700;
+}
+
+.formulir {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12;
+    color: #ffffff;
+    font-weight:5000;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #141715;
+}
+
+
+.cahaya {
+    font-family: 'Poppins', sans-serif;
+    font-weight:5000;
+    margin-top: -10px;
+    font-size: 2rem;
+    color: #359348;
+}
+
+/* Styling untuk form */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0px;
+    background-color: #ffffff;
+   
+}
+
+.form-container2{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0px;
+    background-color: #ffffff;
+    
+}
+
+/* Indikator langkah */
+.step-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+    margin-top: 10;
+}
+
+.step {
+    text-align: center;
+    flex: 1; /* Agar langkah-langkah terdistribusi merata */
+}
+
+.step-number {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 50%; /* Membuat lingkaran */
+    color: white;
+    line-height: 30px; /* Menengahkan angka di dalam lingkaran */
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.step-text { 
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #333;
+}
+
+/* Warna aktif untuk indikator */
+.step.active .step-number {
+    background-color: #4CAF50;
+}
+
+.step.active .step-text {
+    color: #4CAF50;
+}
+
+/* Styling untuk setiap step */
+.form-step {
+    display: none;
+}
+
+/* Step aktif */
+.form-step.active {
+    display: block;
+}
+
+
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form-column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+/* Untuk kolom terakhir pada setiap row */
+.form-column.full-width {
+    flex: 100%;
+    margin-right: 0;
+}
+
+label {
+    font-family: 'poppins', sans-serif;
+    font-size: small;
+    display:grid;
+    margin-bottom: 5px;
+    font-weight: 500;
+    text-align: left;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-column select {
+    appearance: none; /* Hilangkan tampilan default dropdown */
+    background-color: #fff; /* Warna latar belakang agar serasi dengan input */
+    border: 1px solid #ccc; /* Border agar serasi dengan input teks */
+    padding: 8px; /* Padding agar mirip dengan input teks */
+    width: 100%; /* Biar dropdown lebarnya penuh */
+    box-sizing: border-box; /* Supaya padding tidak menambah lebar elemen */
+    border-radius: 4px; /* Supaya tampilannya rapi */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3Cpolygon points='0,0 140,0 70,90' fill='%23666'/%3E%3C/svg%3E");
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 10px;
+   
+    
+}
+
+.form-column select:focus {
+    border-color: #66afe9; /* Warna border saat fokus, mirip dengan input teks */
+    outline: none; /* Hilangkan outline default */
+}
+
+.alamat input{
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+   
+}
+
+.checkbox-container {
+    display: flex;
+    align-items:first baseline; /* Menjaga checkbox di bagian kiri atas */
+    gap: 8px; /* Menambahkan jarak antara checkbox dan label */
+    margin-bottom: 10px; /* Jarak antar baris checkbox */
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: auto; /* Mengembalikan ukuran checkbox ke ukuran standar */
+    margin: 0; /* Menghilangkan margin default */
+}
+
+.checkbox-container label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12;
+    font-weight: 100;
+    
+}
+
+
+.radio-box {
+    display: inline-flex;
+    gap: 20px; /* Jarak antara opsi */
+    align-items: center; /* Agar opsi sejajar dengan baik */
+}
+
+.radio-box label {
+    font-family: 'poppins', sans-serif;
+    font-size: 12;
+    font-weight: 100;
+}
+
+.submit-container {
+    margin-top: 20px;
+    text-align: center;
+   
+}
+/* Button styling */
+button {
+    padding: 10px 20px;
+    font-family: 'poppins', sans-serif;
+    font-size: large;
+    background-color: #359348;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #68bf7a;
+}
+
+
+
+footer {
+    background-color: #23602F; /* Warna hijau tua sama seperti header */
+    color: #ffffff; /* Warna teks agar kontras dengan latar belakang */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3); /* Shadow pada bagian atas footer */
+}
+
+.footer-content, .footer-links, .social-media, .footer-bottom {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #ffffff; /* Warna link putih untuk konsistensi */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #f1f1f1; /* Warna saat hover agar sedikit lebih cerah */
+}
+
+.footer-bottom {
+    font-size: 0.9em;
+    color: #ffffff;
+}
+
+
+/* Global Styles */
+body {
+    font-family: poppins, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* Centered Header Section */
+.centered-container {
+    text-align: center;
+    padding: 50px 20px;
+    padding-bottom: 0.1px;
+    padding-top: 0%;
+}
+
+.centered-container h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+   margin-bottom: 0.1px;
+   margin-top: 0.1cm;
+}
+
+.centered-container p {
+    color: #6c757d;
+    line-height: 1.5;
+}
+
+/* Wrapper Contact Info */
+.contact-info {
+    position: relative;
+    background-color: rgba(229, 246, 233, 0.95); /* Hijau dengan transparansi */
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between; /* Informasi kontak kiri, gambar kanan */
+    align-items: center;
+    max-width: 100%;
+    z-index: 10;
+    
+}
+
+/* Informasi Kontak */
+.contact-item {
+    display: flex; /* Logo dan teks horizontal */
+    align-items: center; /* Vertikal sejajar */
+    gap: 15px;
+    margin-bottom: 30px; /* Jarak antar item */
+}
+
+/* Icon Lingkaran */
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #28a745;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.icon-circle img {
+    width: 30px;
+    height: 30px;
+}
+
+.icon-circle-telp {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #28a745;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+
+.icon-circle-telp img {
+    width: 18px;
+    height: 28px;
+}
+
+/* Teks Kontak */
+.text {
+    display: flex;
+    flex-direction: column; /* Teks tersusun vertikal */
+}
+
+.text .title {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0;
+    color: #23602F;
+}
+
+.text p {
+    margin: 0;
+    color: #6c757d;
+}
+
+/* Gambar Masjid */
+.masjid-image {
+    max-width: 400px;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-bottom: -10px;
+    z-index: 5;
+}
+
+.masjid-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Tambahkan efek rounded corner */
+    padding-left: 0%;
+    margin-left: 100px;
+    margin-bottom: -35px;
+}
+
+/* Map Section */
+.map-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: -100px;
+    width: 100%;
+    height: 400px; /* Tinggi map */
+    border-radius: 10px;
+    overflow: hidden; /* Pastikan peta tidak keluar dari radius */
+    z-index: 10;
+  }
+  
+  .map-container iframe {
+    width: 85%;
+    height: 60%;
+    border: none;
+    border-radius: 20px;
+  }
+
+
+

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../dashboard-admin-main"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "mualaf-project"
+	}
+}
