@@ -8,6 +8,10 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard.index');
 });
 
+Route::get('/beranda', function () {
+    return view('beranda');
+});
+
 Route::get('/pendaftaran', action: function () {
     return view('pendaftaran');
 });
