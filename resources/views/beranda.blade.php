@@ -19,7 +19,7 @@
     <div class="hero-content">
       <h1>Melangkah Bersama, Menuju Hidayah</h1>
       <p>Kami hadir untuk membimbing setiap langkah menuju hidayah Allah...</p>
-      <a href="#" class="btn">Daftar Mualaf</a>
+      <a href='/pendaftaran' class="btn">Daftar Mualaf</a>
     </div>
   </header>
   <main>
