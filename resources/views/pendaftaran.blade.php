@@ -1,19 +1,19 @@
-<form action="" method="POST">
-    @csrf
-    @include('partials.header')
-    
-<title>Form Pendafataran</title>
-
+@include('partials.header')   
+<title>Formulir Pendafataran</title>
+<body>
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
     <div class="centered-container-pendaftaran">
         <img src="{{ asset('images/sya.png')}}" alt="Logo Masjid" style="height: 100px;" class="centered-image">
-
         <h3 class="formulir">Formulir Pendafataran Ikrar Syahadat</h3>
         <h1 class="cahaya">Langkah Awal Menuju <br> Cahaya Islam</h1>
 
     </div>
 
-    <div class="form-container">
+       
+    
+    <form id="myForm" action="{{ route('pendaftaran.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="form-container-pendaftaran">
 
         <!-- Indikator Langkah -->
         <div class="step-indicator">
@@ -32,37 +32,41 @@
         </div>
 
 
-        <div class="step-active">
+        
 
 
             <div class="form-row">
 
                 <div class="form-column">
-                    <label for="name">Nama Lengkap</label>
-                    <input type="text" name="name" required>
-
+                <label for="name">Nama Lengkap:</label>
+                <input type="text" id="name" name="name" required><br><br>
 
                 </div>
 
                 <div class="form-column">
-                    <label for="nik">Nomor KTP/ Pasport</label>
-                    <input type="number" name="nik" required>
+                <label for="nik">Nomor KTP/ Pasport:</label>
+                <input type="text" id="nik" name="nik" pattern="\d{16}" title="Masukkan 16 digit angka" required>
                 </div>
 
             </div>
 
             <div class="form-row">
                 <div class="form-column">
-                    <label for="gender">Jenis Kelamin</label>
-                    <select name="gender" id="gender" required>
-                        <option value="">Pilih Jenis Kelamin</option>
-                        <option value="laki-laki">Laki-Laki</option>
-                        <option value="perempuan">Perempuan</option>
-                    </select>
-
+                <label for="gender">Jenis Kelamin:</label>
+        <select id="gender" name="gender" required>
+            <option value="">Pilih Jenis Kelamin</option>
+            <option value="Laki-Laki">Laki-Laki</option>
+            <option value="Perempuan">Perempuan</option>
+        </select><br><br>
                 </div>
+                   
 
-                
+                <div class="form-column">
+                <label for="tmptlahir">Tempat Lahir:</label>
+                <input type="text" id="tmptlahir" name="tmptlahir" required><br><br>
+                    </div>
+
+                   
 
             </div>
 
@@ -70,14 +74,14 @@
 
                 <div class="form-column">
 
-                    <label for="birthdate">Tanggal Lahir</label>
-                    <input type="date" name="birthdate" id="birthdate" required>
+                <label for="birthdate">Tanggal Lahir:</label>
+                <input type="date" id="birthdate" name="birthdate" required><br><br>
 
                 </div>
 
                 <div class="form form-column">
-                    <label for="pekerjaan">Pekerjaan</label>
-                    <input type="text" name="pekerjaan" required>
+                <label for="pekerjaan">Pekerjaan:</label>
+                <input type="text" id="pekerjaan" name="pekerjaan" required><br><br>
 
                 </div>
             </div>
@@ -98,7 +102,7 @@
 
                 <div class="form-column">
                     <label for="kebangsaan">kebangsaan</label>
-                    <input type="text" name="kebangsaan" required>
+                    <input type="text" id="kebangsaan" name="kebangsaan" required>
                 </div>
 
             </div>
@@ -107,13 +111,13 @@
             <div class="form-row">
                 <div class="form-column">
                     <label for="email">Alamat E-mail</label>
-                    <input type="email" name="email" required>
+                    <input type="email" id="email" name="email" required>
 
                 </div>
 
                 <div class="form-column">
                     <label for="phone">No Handphone</label>
-                    <input type="number" name="phone" required>
+                    <input type="number" id="phone" name="phone" required>
 
                 </div>
 
@@ -128,11 +132,11 @@
             <div class="alamat">
 
                 <label for="alamatktp">Alamat Sesuai KTP/Pasport</label>
-                <input type="text" name="alamatktp" required>
+                <input type="text" id="alamatktp" name="alamatktp" required>
 
 
                 <label for="alamat">Alamat Domisili</label>
-                <input type="text" name="alamat" required>
+                <input type="text" id="address" name="address" required>
 
             </div>
 
@@ -165,8 +169,95 @@
 
 
             <div class="submit-container">
-            <button onclick="window.location.href='/saksi'" class="btn">Daftar</button>
+                <!-- <button type="submit">Daftar</button> -->
+            <button type="submit" onclick="simpanDanNext()">Daftar</button>
             </div>
+    </div>
+    </form>
 
 
-</form>
+
+            @verbatim
+            <script>
+
+        
+        function simpanDanNext() {
+            // event.preventDefault(); // Mencegah reload halaman
+
+            let form = document.getElementById("myForm"); // Ganti sesuai ID 
+
+    if (!form.checkValidity()) {
+        alert("Harap isi semua field yang wajib!");
+        return; // Stop function biar user gak bisa lanjut
+    }
+
+            let formData = new FormData(form); // Simpan data ke localStorage
+
+            fetch("{{ route('pendaftaran.store') }}", {
+    method: "POST",
+    body: formData,
+    headers: {
+        "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
+        "Accept": "application/json"
+    }
+})
+.then(response => response.json())
+.then(data => {
+    if (data.success) {
+        localStorage.setItem("formData1", JSON.stringify(Object.fromEntries(formData.entries())));
+        window.location.href = data.redirect; // Redirect ke halaman yang dikirim dari backend
+    } else {
+        alert("Terjadi kesalahan saat menyimpan data!");
+    }
+})
+.catch(error => {
+    console.error("Error:", error);
+    alert("Gagal menghubungi server. Coba lagi.");
+});
+        }
+
+
+    window.addEventListener("scroll", function () {
+        let header = document.querySelector("header");
+        if (window.scrollY > 10) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
+
+
+   // Dapatkan URL saat ini
+   let path = window.location.pathname;
+
+// Tentukan currentStep berdasarkan halaman
+let currentStep = 1;
+if (path.includes("saksi")) {
+    currentStep = 2;
+} else if (path.includes("selesai")) {
+    currentStep = 3;
+}
+
+// Update tampilan step
+function updateStep() {
+    document.querySelectorAll(".step").forEach((step, index) => {
+        if (index + 1 === currentStep) {
+            step.classList.add("active");
+        } else {
+            step.classList.remove("active");
+        }
+    });
+}
+
+updateStep();
+
+
+    document.addEventListener("DOMContentLoaded", updateStep);
+        
+
+
+    </script>
+
+</body>
+@endverbatim
+

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 </head>
 <body>
-    <div class="centered-container">
+    <div class="centered-container-contact">
         <h1>Kontak Kami</h1>
         <p>Ingin tahu lebih banyak tentang kegiatan masjid atau butuh dukungan spiritual? <br> 
            Hubungi kami melalui kontak di bawah ini, dan mari jalin silaturahmi yang erat bersama kami.</p>
@@ -65,4 +65,20 @@
         </iframe>
        
     </div>
+    <footer>
+        <p>© 2023 Masjid AL-HIJR II</p>
+    </footer>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let header = document.querySelector("header");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 5) { // Jika di-scroll lebih dari 50px
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+    });
+</script>
 </body>
